@@ -1,0 +1,9 @@
+<div>
+  <div class="header">
+    <h1> -</h1>
+  </div>
+
+
+<app-sidebar [selectedPark]="selectedPark" (sidebarLocationChanged)="updateLocation($event)"></app-sidebar>
+<app-mapbox (locationChanged)="updateLocation($event)" [selectedPark]="selectedPark"></app-mapbox>
+</div>
