@@ -1,15 +1,23 @@
 <div class="sidebar">
-    <div class="heading">
-      <h1>Jacksonville Tennis Parks</h1> 
-    </div>
-    <div id="listings" class="listings" *ngFor="let park of tennisParks">
-        <div class="item" id="{{park._id}}">
-            <a href="#" class="title"  (click)="displayPopup(park)" >
-                {{park.name}}
-            </a>
-            <div>{{park.address}}
-                <br>{{park.phone}}
-            </div>
-        </div>   
+  <div class="heading">
+    <h2>Tennis Park Locations</h2>
+  </div>
+
+  <div id="listings" class="listings" *ngFor="let park of tennisParks">
+    <div class="item" id="{{ park._id }}">
+      <a href="#" class="title" (click)="displayPopup(park)">
+        {{ park.name }}
+      </a>
+      <div>{{ park.address }} <br />{{ park.phone }}</div>
     </div>
   </div>
+  <!-- duplicate to test overflow scroll 
+    <div id="listings" class="listings" *ngFor="let park of tennisParks">
+    <div class="item" id="{{ park._id }}">
+      <a href="#" class="title" (click)="displayPopup(park)">
+        {{ park.name }}
+      </a>
+      <div>{{ park.address }} <br />{{ park.phone }}</div>
+    </div>
+  </div> -->
+</div>

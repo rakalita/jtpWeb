@@ -4,24 +4,29 @@ import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MongoService {
-  private tennisParks:TennisPark [] = [];
+  private tennisParks: TennisPark[] = [];
   private tennisParksUpdated = new Subject<TennisPark[]>();
 
-  constructor(private http:HttpClient) { }
-//http://localhost:3000/api/v1/jtp
-  getAllTennisParks(){
-    this.http.get<{status:string,results:string,data:{tennisparks:TennisPark[]}}>('http://localhost:3000/api/v1/jtp')
+  constructor(private http: HttpClient) {}
+  //http://localhost:3000/api/v1/jtp
+  getAllTennisParks() {
+    this.http
+      .get<{
+        status: string;
+        results: string;
+        data: { tennisparks: TennisPark[] };
+      }>('http://localhost:3000/api/v1/jtp')
       .subscribe((resultData) => {
         this.tennisParks = resultData.data.tennisparks;
         this.tennisParksUpdated.next([...this.tennisParks]);
-       // console.log(this.tennisParks);
-      });   
+        console.log(this.tennisParks);
+      });
   }
 
-  getTennisParksUpdateListener(){
+  getTennisParksUpdateListener() {
     return this.tennisParksUpdated.asObservable();
   }
 }

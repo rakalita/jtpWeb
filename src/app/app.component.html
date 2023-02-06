@@ -1,9 +1,25 @@
-<div>
-  <div class="header">
-    <h1> -</h1>
-  </div>
+<header class="header">
+  <a href="#">
+    <img src="assets/images/tennisBall.png" alt="logo" class="logo" />
+  </a>
+  <h1>Jax Tennis Parks</h1>
 
+  <nav class="main-nav">
+    <ul class="navbar-list">
+      <li><a href="#" class="nav-link">Contact </a></li>
+      <li><a href="#" class="nav-link">Admin</a></li>
+      <li><a href="#" class="nav-link">Login</a></li>
+    </ul>
+  </nav>
+</header>
 
-<app-sidebar [selectedPark]="selectedPark" (sidebarLocationChanged)="updateLocation($event)"></app-sidebar>
-<app-mapbox (locationChanged)="updateLocation($event)" [selectedPark]="selectedPark"></app-mapbox>
+<div class="main-content">
+  <app-sidebar
+    [selectedPark]="selectedPark"
+    (sidebarLocationChanged)="updateLocation($event)"
+  ></app-sidebar>
+  <app-mapbox
+    (locationChanged)="updateLocation($event)"
+    [selectedPark]="selectedPark"
+  ></app-mapbox>
 </div>

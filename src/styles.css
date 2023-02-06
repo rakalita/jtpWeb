@@ -1,158 +1,267 @@
-body {
-    color: #404040;
-    font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-  }
+/*
+-- 1 TYPOGRAPHY SYSTEM
 
-  * {
-    box-sizing: border-box;
-  }
+FONT SIZE SYSTEM (px)
+  10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
 
-  .header{
-    background-color: #1589bb;
-    height:8%;
-  }
+  SPACING SYSTEM (px)
+  2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
-  .sidebar {
-    width: 15%;
-    height: 100%;
-    overflow: hidden;
-    float: left;
-    border-right: 3px solid rgba(183, 61, 61, 0.25);
-  }
+  Font Weight:
+    Default 400 
+    Mmedium 500 
+    Enhanced 600 
+    Bold 700
+    
+  Default Line Height: 1
+    Small : 1.05
+    medium: 1.2
+    Paragraph default : 1.6
 
-  .map {
-    position:absolute;
-    right: 0;
-    bottom: 0;
-    width: 85%;
-    height:97%;
-    float: left;
-  }
+  Letter Spacing:
+    -0.5px
+    0.75px
 
-  h1 {
-    font-size: 28px;
-    margin: 0;
-    font-weight: 400;
-    line-height: 20px;
-    padding: 20px 2px;
-  }
+  Border Radius: 
+    Default 9px
+  Medium 11px
 
-  .heading {
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    min-height: 60px;
-    line-height: 60px;
-    padding: 0 10px;
-    background-color: #2cab3b;
-    color: #fff;
-  }
-
-  .listings {
-    overflow: auto;
-    padding-bottom: 5px;
-  }
-
-  .listings .item {
-    display: block;
-    border-bottom: 1px solid rgb(83, 81, 81);
-    padding: 10px;
-    text-decoration: none;
-  }
-
-  .listings .item:last-child {
-    border-bottom: none;
-  }
-  .listings .item .title {
-    display: block;
-    color: #00853e;
-    font-weight: 500;
-    font-size: 1em;
-  }
-
-  .listings .item .title small {
-    font-weight: 400;
-  }
+-- 2- COLORS: 
+  Primary: 
   
-  .listings .item.active .title,
-  .listings .item .title:hover {
-    color: #f6ec32;
-  }
-  .listings .item.active {
-    background-color: #c7c4c4;
-  }
-  ::-webkit-scrollbar {
-    width: 3px;
-    height: 3px;
-    border-left: 0;
-    background: rgba(0, 0, 0, 0.1);
-  }
-  ::-webkit-scrollbar-track {
-    background: none;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #00853e;
-    border-radius: 0;
-  }
+  Tint:
+  
+  Shades:
+  
+  Accents: 
+  Greys: 
+  #555 
+  #333
+  #eee
+  #777
+  #ccc
+  #6f6f6f
+  
 
-  .marker {
-    border: none;
-    cursor: pointer;
-    height: 56px;
-    width: 56px;
-    background-image: url(images/marker.png);
-  }
 
-  /* Marker tweaks */
-  .mapboxgl-popup {
-    padding-bottom: 50px;
-  }
+-- 3 IMAGES
+  Icons:
+  Sizes:  
 
-  .mapboxgl-popup-close-button {
-    display: none;
-  }
-  .mapboxgl-popup-content {
-    font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
-    padding: 0;
-    width: 430px;
-  }
-  .mapboxgl-popup-content h3 {
-    background: #91c949;
-    color: #fff;
-    margin: 0;
-    padding: 10px;
-    border-radius: 3px 3px 0 0;
-    font-weight: 700;
-    margin-top: -15px;
-  }
+-- 4 EFFECTS
+Shadows: 
+Borders: 
+  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+body {
+  color: #2e2d2d;
+  font-family: Inter, sans-serif;
 
-  .mapboxgl-popup-content h4 {
-    margin: 0;
-    padding-left: 5px;
-    font-weight: 400;
-    vertical-align: middle;
-  }
+  -webkit-font-smoothing: antialiased;
+}
+/* ============= Header Section ============================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    to right,
+    rgba(0, 133, 62, 0.8) 60%,
+    rgba(145, 201, 73, 0.5)
+  );
+  /* url(assets/images/lake.jpg); */
+  height: 8.6rem; /*easy to implement with height when adding sticky nav */
+  padding: 0 4.2rem;
+}
 
-  .mapboxgl-popup-content img {
-    padding:5px;
-    float:left;
-  }
-  .mapboxgl-popup-content span {
-    padding-left: 4px;
-    font-weight:bold;
-  }
+.logo {
+  height: 7.6rem;
+}
 
-  .mapboxgl-popup-content div {
-    padding: 10px;
-  }
+.header h1 {
+  justify-self: flex-start; /*TODO: how to align to the start*/
+}
 
-  .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
-    margin-top: 15px;
-  }
+.navbar-list {
+  list-style: none;
+  font-size: 1.8rem;
+  display: flex;
+  gap: 4.8rem;
+  align-items: center;
+}
 
-  .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
-    border-bottom-color: #91c949;
-  }
+/* Styling links */
+
+.nav-link:link,
+.nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.3s;
+}
+.nav-link:hover,
+.nav-link:active {
+  color: #cf711f;
+}
+/* LVHA */
+/* ================= MAIN CONTENT ======================== */
+.main-content {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+}
+.sidebar {
+  background-color: #f5f9f2;
+  overflow-y: scroll;
+  display: block;
+  /* flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 10em; */
+  flex: 1 0 auto;
+  transition: all 0.3s;
+  overflow-y: scroll;
+  height: 94vh;
+  color: #404040;
+}
+
+.map {
+  position: absolute;
+  right: 0;
+  top: 80;
+  width: 80%;
+  height: 100%;
+  grid-column: span 4;
+}
+
+.heading h2 {
+  margin: 0;
+  /* background-color: blue; */
+  padding: 20px 10px;
+}
+
+.heading {
+  border-bottom: 1px solid #eee;
+  padding: 0 10px;
+  background-color: #cfdbcf;
+  color: rgb(60, 57, 57);
+  margin-bottom: 30px;
+}
+
+.listings {
+  overflow: auto;
+  padding-bottom: 5px;
+  font-size: 1.4rem;
+}
+
+.listings .item {
+  border-bottom: 1px solid rgb(83, 81, 81);
+  padding: 10px;
+  text-decoration: none;
+}
+
+.listings .item:last-child {
+  border-bottom: none;
+}
+.listings .item .title {
+  color: #00853e;
+  font-weight: 500;
+  font-size: 1em;
+}
+
+.listings .item .title small {
+  font-weight: 400;
+}
+
+.listings .item.active .title,
+.listings .item .title:hover {
+  color: #e6863d;
+}
+.listings .item.active {
+  background-color: #eceaea;
+}
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  border-left: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-track {
+  background: none;
+}
+::-webkit-scrollbar-thumb {
+  background: #00853e;
+  border-radius: 0;
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+.marker {
+  border: none;
+  cursor: pointer;
+  height: 86px;
+  width: 86px;
+  background-image: url(assets/images/marker-icons/mapbox-marker-icon-gray.svg);
+  background-repeat: no-repeat;
+}
+
+/* Marker tweaks */
+.mapboxgl-popup {
+  padding-bottom: 50px;
+}
+
+.mapboxgl-popup-close-button {
+  display: none;
+}
+.mapboxgl-popup-content {
+  font: 400 15px/22px "Source Sans Pro", "Helvetica Neue", sans-serif;
+  padding: 0;
+  width: 430px;
+}
+.mapboxgl-popup-content h3 {
+  background: #91c949;
+  color: #fff;
+  margin: 0;
+  padding: 10px;
+  border-radius: 3px 3px 0 0;
+  font-weight: 700;
+  margin-top: -15px;
+}
+
+.mapboxgl-popup-content h4 {
+  margin: 0;
+  padding-left: 5px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.mapboxgl-popup-content img {
+  padding: 5px;
+  float: left;
+}
+.mapboxgl-popup-content span {
+  padding-left: 4px;
+  font-weight: bold;
+}
+
+.mapboxgl-popup-content div {
+  padding: 10px;
+}
+
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+  margin-top: 15px;
+}
+
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+  border-bottom-color: #4d711e;
+}
 /* You can add global styles to this file, and also import other style files */
